@@ -35,9 +35,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/userDB', {
+// mongoose.connect('mongodb://localhost:27017/userDB', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+mongoose.connect(`mongodb+srv://admin-arseniy:${process.env.PASSWORD}@cluster0.kwkdp.mongodb.net/userDB?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 });
 mongoose.set('useCreateIndex', true);
 
