@@ -147,8 +147,10 @@ app.get('/secrets', function(req, res) {
 			if (err) {
 				console.log(err);
 			} else {
-				if (foundUsers) {
+				if (foundUsers.length != 0) {
 					res.render('secrets', {usersWithSecrets: foundUsers});
+				} else {
+					res.render('secrets', {usersWithSecrets: null});
 				}
 			}
 		});
