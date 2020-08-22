@@ -121,7 +121,7 @@ app.get('/auth/google/secrets',
 //GET requests for Facebook authentication
 app.get('/auth/facebook',
   passport.authenticate('facebook', {
-    failureRedirect: '/login'
+    scope: ['profile']
   })
 );
 
